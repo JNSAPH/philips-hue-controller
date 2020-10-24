@@ -1,0 +1,24 @@
+{
+  "name": "philips-hue-controller",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "aph",
+  "homepage": "https://jnsaph.com",
+  "description": "A simple easy to use NodeJS interface to the Philips Hue API",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JNSAPH/easy-philips-hue"
+  },
+  "keywords": [
+    "philips-hue",
+    "hue-controller",
+    "philips-hue-api",
+    "philips-hue-bridge-api",
+    "philips-hue-wrapper"
+  ]
+  
+}
