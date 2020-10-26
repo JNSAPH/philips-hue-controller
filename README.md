@@ -5,6 +5,14 @@
   </h1>
 </p>
 
+
+ 
+ <h3 align="center">
+  <img src="https://img.shields.io/npm/v/philips-hue-controller?orange=blue"/>
+  <img alt="downloads" src="https://img.shields.io/npm/dm/philips-hue-controller.svg?color=blue" target="_blank"/>
+  <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-yellow.svg" target="_blank" />
+</h3>
+
 I wanted to build an Application to controll my Hue Lamps from my PC and got fed up with there not being a good Package to help me build it. Building everything from scratch took forever and i want to save other people from having to do this. 
 
 <br>
