@@ -18,20 +18,26 @@ module.exports.config = (OBJconfig) => {
 
 
 // Return Promise for Lights, Groups and Sensors
-module.exports.getLights = () => { 
-     return axios.get("http://" + config.ip + "/api/" + config.key + "/lights")
+module.exports.getLights = () => {
+    if (!config) throw new Error("Expected a configuration. Check the Docs for more Information");
+    return axios.get("http://" + config.ip + "/api/" + config.key + "/lights")
 }
 
-module.exports.getGroups = () => { 
+module.exports.getGroups = () => {
+    if (!config) throw new Error("Expected a configuration. Check the Docs for more Information");
     return axios.get("http://" + config.ip + "/api/" + config.key + "/groups")
 }
 
-module.exports.getSensors = () => { 
-    return axios.get("http://" + config.ip + "/api/" + config.key + "/sensors").data
+module.exports.getSensors = () => {
+    if (!config) throw new Error("Expected a configuration. Check the Docs for more Information");
+    return axios.get("http://" + config.ip + "/api/" + config.key + "/sensors")
 }
 
 // Change Lamp State
-module.exports.changeState = (lamp, state) => { 
+module.exports.changeState = (lamp, state) => {
+    if (!lamp || !state) throw new Error("Expected a Lamp and a State Value. Check the Docs for more Information.");
+    if (!config) throw new Error("Expected a configuration. Check the Docs for more Information");
+
     return axios({
         method: 'put',
         url: `http://${config.ip}/api/${config.key}/lights/${lamp}/state`,
@@ -41,8 +47,9 @@ module.exports.changeState = (lamp, state) => {
     })
 }
 
-module.exports.changeBrightness = (lamp, bri) => { 
+module.exports.changeBrightness = (lamp, bri) => {
     if (!lamp || !bri) throw new Error("Expected a Lamp and a Brightness Value. Check the Docs for more Information.");
+    if (!config) throw new Error("Expected a configuration. Check the Docs for more Information");
     if (bri > 255 || bri < 0) throw new Error("Brightness Value must be between 0 and 255");
 
     return axios({
@@ -56,14 +63,15 @@ module.exports.changeBrightness = (lamp, bri) => {
 
 module.exports.changeColor = (lamp, r, g, b) => {
     if (!lamp) throw new Error("Expected a Lamp and a Brightness Value. Check the Docs for more Information.");
-    if (r < 255 || !r) throw new Error("Expected a R-Value. R-Value must be between 0 and 255");
-    if (g < 255 || !g) throw new Error("Expected a G-Value. R-Value must be between 0 and 255");
-    if (b < 255 || !b) throw new Error("Expected a B-Value. R-Value must be between 0 and 255");
+    if (!config) throw new Error("Expected a configuration. Check the Docs for more Information");
+    if (r > 255 || r < 0 || !r) throw new Error("Expected a R-Value. R-Value must be between 0 and 255");
+    if (g > 255 || g < 0 || !g) throw new Error("Expected a G-Value. R-Value must be between 0 and 255");
+    if (b > 255 || b < 0 || !b) throw new Error("Expected a B-Value. R-Value must be between 0 and 255");
 
     return axios({
         method: 'put',
         url: `http://${config.ip}/api/${config.key}/lights/${lamp}/state`,
-        data: { "on": true, "xy": JSON.parse(colorconv.rgbtoxy(r,g,b)), "bri": colorconv.brightness(r,g,b) }
+        data: { "on": true, "xy": JSON.parse(colorconv.rgbtoxy(r, g, b)), "bri": colorconv.brightness(r, g, b) }
     })
 }
 
