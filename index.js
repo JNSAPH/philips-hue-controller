@@ -30,7 +30,7 @@ module.exports.getGroups = () => {
 
 module.exports.getSensors = () => {
     if (!config) throw new Error("Expected a configuration. Check the Docs for more Information");
-    return axios.get("http://" + config.ip + "/api/" + config.key + "/sensors").data
+    return axios.get("http://" + config.ip + "/api/" + config.key + "/sensors")
 }
 
 // Change Lamp State
