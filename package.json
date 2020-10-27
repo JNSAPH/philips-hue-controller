@@ -1,6 +1,6 @@
 {
   "name": "philips-hue-controller",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "index.js",
   "author": "aph",
   "homepage": "https://jnsaph.com",
@@ -13,7 +13,6 @@
     "type": "git",
     "url": "https://github.com/JNSAPH/easy-philips-hue"
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "keywords": [
     "philips-hue",
     "hue-controller",

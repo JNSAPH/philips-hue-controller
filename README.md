@@ -104,7 +104,7 @@ hue.changeState(9, true);
     [9] -> LampID | ID of the Lamp
     [125] -> Brightness | An Integer from 0-255 
 */
-hue.changeState(9, 125);
+hue.changeBrightness(9, 125);
 
 
 
