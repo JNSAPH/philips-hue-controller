@@ -35,7 +35,7 @@ module.exports.getSensors = () => {
 
 // Change Lamp State
 module.exports.changeState = (lamp, state) => {
-    if (!lamp || !state) throw new Error("Expected a Lamp and a State Value. Check the Docs for more Information.");
+    if (!lamp || state == undefined) throw new Error("Expected a Lamp and a State Value. Check the Docs for more Information.");
     if (!config) throw new Error("Expected a configuration. Check the Docs for more Information");
 
     return axios({

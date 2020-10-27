@@ -1,6 +1,6 @@
 {
   "name": "philips-hue-controller",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "main": "index.js",
   "author": "aph",
   "homepage": "https://jnsaph.com",
