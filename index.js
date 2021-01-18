@@ -64,9 +64,9 @@ module.exports.changeBrightness = (lamp, bri) => {
 module.exports.changeColor = (lamp, r, g, b) => {
     if (!lamp) throw new Error("Expected a Lamp and a Brightness Value. Check the Docs for more Information.");
     if (!config) throw new Error("Expected a configuration. Check the Docs for more Information");
-    if (r > 255 || r < 0 || !r) throw new Error("Expected a R-Value. R-Value must be between 0 and 255");
-    if (g > 255 || g < 0 || !g) throw new Error("Expected a G-Value. R-Value must be between 0 and 255");
-    if (b > 255 || b < 0 || !b) throw new Error("Expected a B-Value. R-Value must be between 0 and 255");
+    if (r >= 256 || r <= -1 || !r) throw new Error("Expected a R-Value. R-Value must be between 0 and 255");
+    if (g >= 256 || g <= -1 || !g) throw new Error("Expected a G-Value. R-Value must be between 0 and 255");
+    if (b >= 256 || b <= -1 || !b) throw new Error("Expected a B-Value. R-Value must be between 0 and 255");
 
     return axios({
         method: 'put',
